@@ -1,0 +1,39 @@
+# Visual Studio y archivos de usuario
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Archivos de compilación
+bin/
+obj/
+*.dll
+*.exe
+*.pdb
+*.cache
+*.ilk
+*.log
+*.ncb
+*.sdf
+*.aps
+*.pch
+*.ipch
+*.tlog
+*.lastbuildstate
+
+# Paquetes de NuGet
+*.nupkg
+packages/
+project.lock.json
+project.assets.json
+
+# Archivos de configuración de VS Code
+.vscode/
+.vs/
+
+
+# Publicaciones y despliegue
+publish/
+out/
+*.publishsettings
