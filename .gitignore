@@ -1,4 +1,4 @@
-# Visual Studio y archivos de usuario
+# Archivos de usuario de Visual Studio
 .vs/
 *.suo
 *.user
@@ -22,18 +22,48 @@ obj/
 *.tlog
 *.lastbuildstate
 
-# Paquetes de NuGet
+# VS Code settings
+.vscode/
+
+# Configuraciones específicas de MAUI (dispositivos, depuración)
+*.device.xml
+*.db
+*.db-shm
+*.db-wal
+
+# MAUI generated resources
+**/Resources/Raw/**/*.designer.cs
+**/Resources/Fonts/*.ttf.cs
+**/Resources/Images/*.png.cs
+**/Platforms/**/Resources/**/*.designer.cs
+
+# NuGet
 *.nupkg
 packages/
 project.lock.json
 project.assets.json
+*.nuget.props
+*.nuget.targets
 
-# Archivos de configuración de VS Code
-.vscode/
-.vs/
-
-
-# Publicaciones y despliegue
+# Archivos de publicación y despliegue
 publish/
 out/
 *.publishsettings
+
+# Logs y temporales
+*.log
+*.tmp
+*.bak
+
+# macOS (si trabajas en Mac para iOS)
+.DS_Store
+
+# Android (MAUI cross-platform)
+**/obj/**/android/assets/
+**/obj/**/android/bin/
+**/obj/**/android/res/
+**/obj/**/android/*.apk
+**/obj/**/android/*.aab
+
+# iOS (si aplicable)
+**/obj/**/ios/
