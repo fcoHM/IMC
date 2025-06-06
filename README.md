@@ -10,7 +10,7 @@ Su objetivo es registrar datos de pacientes y calcular indicadores clave de salu
 
 Puedes visualizar el diseño de la interfaz en el siguiente enlace:
 
-🔗 [Ver diseño](https://drive.google.com/file/d/1LXHw9f4atpbzBXjfHfyV2YdvQKhafL1t/view?usp=sharing)
+🔗 [Ver diseño](https://drive.google.com/file/d/17wfhHYtjAZKvQOz33ZsSDKgMcuNr02IK/view?usp=sharing)
 
 ---
 
