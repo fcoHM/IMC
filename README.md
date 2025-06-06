@@ -8,9 +8,9 @@ Su objetivo es registrar datos de pacientes y calcular indicadores clave de salu
 
 ## 📱 Diseño de la Interfaz
 
-Puedes visualizar el diseño de la interfaz en el siguiente enlace de Miro:
+Puedes visualizar el diseño de la interfaz en el siguiente enlace:
 
-🔗 [Ver diseño en Miro](https://drive.google.com/file/d/1H5af60Y_qiJXJXZcX7tnQlqu921_O8dE/view?usp=sharing)
+🔗 [Ver diseño](https://drive.google.com/file/d/1LXHw9f4atpbzBXjfHfyV2YdvQKhafL1t/view?usp=sharing)
 
 ---
 
