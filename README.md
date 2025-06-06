@@ -10,7 +10,7 @@ Su objetivo es registrar datos de pacientes y calcular indicadores clave de salu
 
 Puedes visualizar el diseño de la interfaz en el siguiente enlace de Miro:
 
-🔗 [Ver diseño en Miro](https://miro.com/welcomeonboard/NHFOcXBQYUdqRkV0RmNTbnM0S2wwVlg1UmZUVHlJL21VZTg0cE52dllqUFIwZHBRODh4d3ltTkVlNEh5YkQ1azJwVVBQY3BFOCtlVEhlUFlhd0hMdElFWUpPYzRMOWZydVdqM3d4TEQ1dnhSOGtCZVpoUzk3eVI4dGx2ZEYwUU1hWWluRVAxeXRuUUgwWDl3Mk1qRGVRPT0hdjE=?share_link_id=308362266193)
+🔗 [Ver diseño en Miro](https://drive.google.com/file/d/1H5af60Y_qiJXJXZcX7tnQlqu921_O8dE/view?usp=sharing)
 
 ---
 
