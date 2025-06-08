@@ -51,10 +51,13 @@ namespace IMC.ViewModel
                 return;
 
             var sesion = App.Current.Services.GetRequiredService<SesionPacienteService>();
-            sesion.EstablecerPaciente(paciente); // Usar método correcto
+            sesion.EstablecerPaciente(paciente);
 
-            // Forzamos navegación con parámetro para que la página se refresque
-            await Shell.Current.GoToAsync($"{nameof(Home)}?refresh=true");
+            // Confirmación para depuración
+            System.Diagnostics.Debug.WriteLine($"✅ Paciente seleccionado: {paciente.Nombres}");
+
+            await Shell.Current.GoToAsync(nameof(Home));
         }
+
     }
 }

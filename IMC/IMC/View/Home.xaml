@@ -6,6 +6,7 @@
              BackgroundColor="White"
              Title="Home"
              x:DataType="vm:VMHome">
+
     <Grid RowSpacing="20" Padding="20" >
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -67,7 +68,7 @@
                             TextColor="White"
                             CornerRadius="15"
                             WidthRequest="200"
-                            Command="{Binding HistorialCommand}" />
+                            Command="{Binding HistorialMediCommand}" />
                 </StackLayout>
 
             </Grid>
@@ -86,7 +87,7 @@
                     BackgroundColor="Black"
                     TextColor="White"
                     CornerRadius="15"
-                    Command="{Binding }"/>
+                    Command="{Binding MiInformacionCommand }"/>
             <!--implementacion de la binding-->
         </Grid>
 

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="IMC.View.HistorialMediciones"
+    xmlns:vm="clr-namespace:IMC.ViewModel"
+    xmlns:mo="clr-namespace:IMC.Model"
+    x:DataType="vm:VMHistorialMediciones"
+    Title="Historial de Mediciones"
+    BackgroundColor="White">
+
+    <ContentPage.Content>
+        <Grid RowDefinitions="Auto,*" Padding="20">
+
+            <!-- Título -->
+            <Label Grid.Row="0"
+                   Text="Historial de Mediciones"
+                   FontSize="24"
+                   HorizontalOptions="Center"
+                   TextColor="Black"
+                   FontFamily="RalewaySemiBold"
+                   Padding="10" />
+
+            <!-- Lista con scroll automático -->
+            <CollectionView Grid.Row="1"
+                            ItemsSource="{Binding Mediciones}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="mo:Medicion">
+                        <Frame BorderColor="LightGray" CornerRadius="10" Margin="0,5">
+                            <StackLayout Padding="10">
+                                <Label Text="{Binding fecha, StringFormat='Fecha: {0:dd/MM/yyyy}'}" />
+                                <Label Text="{Binding peso, StringFormat='Peso: {0} kg'}" />
+                                <Label Text="{Binding altura, StringFormat='Altura: {0} cm'}" />
+                                <Label Text="{Binding indiceMasaCorporal, StringFormat='IMC: {0}'}" />
+                                <Label Text="{Binding estatusIMC, StringFormat='Estatus IMC: {0}'}" />
+                                <Label Text="{Binding grasaCorporal, StringFormat='Grasa corporal: {0}%'}" />
+                                <Label Text="{Binding pesoIdeal, StringFormat='Peso ideal: {0} kg'}" />
+                                <Label Text="{Binding tdee, StringFormat='TDEE: {0} kcal'}" />
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

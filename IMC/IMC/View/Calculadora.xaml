@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:IMC.ViewModel"
              x:Class="IMC.View.Calculadora"
              BackgroundColor="White"
-             Title="Calculadora">
+             Title="Calculadora"
+             x:DataType="vm:VMCalculadora">
+
+
+
     <Grid RowSpacing="20" Padding="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -32,77 +37,125 @@
                 StrokeShape="RoundRectangle 15"
                 VerticalOptions="FillAndExpand">
 
-            <Grid Margin="10">
+            <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/> <!-- Imagen -->
+                    <RowDefinition Height="*"/> <!-- Formulario de cálculo -->
+                    <RowDefinition Height="Auto"/> <!--etiqueta de estatus de IMC-->
                 </Grid.RowDefinitions>
 
                 <Image Grid.Row="0"
-                       Source="register.png"
+                       Source="mujer.png"
                        Aspect="AspectFill"
-                       WidthRequest="80"
-                       HeightRequest="80"
+                       WidthRequest="130"
+                       HeightRequest="130"
                        HorizontalOptions="Center"
                        VerticalOptions="Start"/>
 
-                <Grid Grid.Row="1"
-                      RowDefinitions="Auto, Auto, Auto, Auto"
+                <Grid Margin="10"
                       RowSpacing="15"
-                      VerticalOptions="StartAndExpand">
+                      ColumnSpacing="10"
+                      Grid.Row="1">
 
-                    <VerticalStackLayout Grid.Row="0" Spacing="5">
-                        <Label Text="Nombres:" FontSize="16" TextColor="Black"/>
-                        <Entry Placeholder="Ej. Juan Armando"
-                               BackgroundColor="White"
-                               HeightRequest="40"
-                               TextColor="Black"
-                               Text="{Binding Nombres, Mode=TwoWay}"/>
-                    </VerticalStackLayout>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <!-- Peso -->
+                        <RowDefinition Height="Auto"/>
+                        <!-- Altura -->
+                        <RowDefinition Height="Auto"/>
+                        <!-- Actividad física -->
+                        <RowDefinition Height="Auto"/>
+                        <!-- IMC -->
+                        <RowDefinition Height="Auto"/>
+                        <!-- %GC -->
+                        <RowDefinition Height="Auto"/>
+                        <!-- Peso ideal -->
+                        <RowDefinition Height="Auto"/>
+                        <!-- TDEE -->
+                    </Grid.RowDefinitions>
 
-                    <VerticalStackLayout Grid.Row="1" Spacing="5">
-                        <Label Text="Apellidos:" FontSize="16" TextColor="Black"/>
-                        <Entry Placeholder="Ej. Pérez García"
-                               BackgroundColor="White"
-                               HeightRequest="40"
-                               TextColor="Black"
-                               Text="{Binding Apellidos, Mode=TwoWay}"/>
-                    </VerticalStackLayout>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <!-- Etiqueta -->
+                        <ColumnDefinition Width="*"/>
+                        <!-- Campo o resultado -->
+                    </Grid.ColumnDefinitions>
 
-                    <VerticalStackLayout Grid.Row="2" Spacing="5">
-                        <Label Text="Fecha Nacimiento:" FontSize="16" TextColor="Black"/>
-                        <DatePicker BackgroundColor="White"
-                                    HeightRequest="40"
-                                    TextColor="Black"
-                                    Date="{Binding FechaNacimiento, Mode=TwoWay}"/>
-                    </VerticalStackLayout>
+                    <!-- Peso -->
+                    <Label Grid.Row="0" Grid.Column="0" Text="Peso (kg):" TextColor="Black" VerticalOptions="Center"/>
+                    <Entry Grid.Row="0" Grid.Column="1" BackgroundColor="white"  Placeholder="Ingrese su peso" Text="{Binding Peso}" TextColor="Black" Keyboard="Numeric"/>
 
-                    <VerticalStackLayout Grid.Row="3" Spacing="5">
-                        <Label Text="Sexo:" FontSize="16" TextColor="Black"/>
-                        <Picker Title="Selecciona..."
-                                BackgroundColor="White"
-                                HeightRequest="40"
-                                TextColor="Black"
-                                SelectedItem="{Binding SexoSeleccionado, Mode=TwoWay}">
-                            <Picker.Items>
-                                <x:String>Masculino</x:String>
-                                <x:String>Femenino</x:String>
-                            </Picker.Items>
-                        </Picker>
+                    <!-- Altura -->
+                    <Label Grid.Row="1" Grid.Column="0" Text="Altura (cm):" TextColor="Black" VerticalOptions="Center"/>
+                    <Entry Grid.Row="1" Grid.Column="1" BackgroundColor="white" Placeholder="Ingrese su altura" Text="{Binding Altura}" TextColor="Black" Keyboard="Numeric"/>
 
-                    </VerticalStackLayout>
+                    <!-- Actividad física -->
+                    <Label Grid.Row="2" Grid.Column="0" Text="Actividad física:" TextColor="Black" VerticalOptions="Center"/>
+                    <Picker Grid.Row="2" Grid.Column="1"
+                            Title="Selecciona..."
+                            BackgroundColor="White"
+                            HeightRequest="40"
+                            TextColor="Black"
+                            SelectedItem="{Binding Seleccion, Mode=TwoWay}">
+                        <Picker.Items>
+                            <x:String>Rara vez</x:String>
+                            <x:String>1 a 3 dias</x:String>
+                            <x:String>3 a 5 dias</x:String>
+                            <x:String>6 a 7 dias</x:String>
+                            <x:String>Todos los dias</x:String>
+                        </Picker.Items>
+                    </Picker>
+
+                    <!-- IMC -->
+                    <Label Grid.Row="3" Grid.Column="0" Text="IMC:" TextColor="Black" VerticalOptions="Center"/>
+                    <Label Grid.Row="3" Grid.Column="1" Text="{Binding IndiceMasaCorporal }" TextColor="Black" VerticalOptions="Center"/>
+
+                    <!-- %GC -->
+                    <Label Grid.Row="4" Grid.Column="0" Text="%GC:" TextColor="Black" VerticalOptions="Center"/>
+                    <Label Grid.Row="4" Grid.Column="1" Text="{Binding GrasaCorporal}" TextColor="Black" VerticalOptions="Center"/>
+
+                    <!-- Peso ideal -->
+                    <Label Grid.Row="5" Grid.Column="0" Text="Peso ideal:" TextColor="Black" VerticalOptions="Center"/>
+                    <Label Grid.Row="5" Grid.Column="1" Text="{Binding PesoIdeal}" TextColor="Black" VerticalOptions="Center"/>
+
+                    <!-- TDEE -->
+                    <Label Grid.Row="6" Grid.Column="0" Text="TDEE:" TextColor="Black" VerticalOptions="Center"/>
+                    <Label Grid.Row="6" Grid.Column="1" Text="{Binding Tdee}" TextColor="Black" VerticalOptions="Center"/>
+
                 </Grid>
+
+                <Grid Grid.Row="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <!-- Etiqueta de estatus de IMC -->
+                        <RowDefinition Height="*"/>
+                        <!-- Espacio para el estatus de IMC -->
+                    </Grid.RowDefinitions>
+
+
+                    <Label Text="Estatus de IMC:"
+                           TextColor="Black"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           Grid.Row="0"/>
+                    <Label Text="{Binding EstatusIMC}"
+                           Grid.Row="1"
+                           TextColor="Black"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           FontAttributes="Bold"/>
+                </Grid>
+
             </Grid>
+
+
+
         </Border>
 
-        <!-- Mensaje de error -->
-        <CollectionView ItemsSource="{Binding Errores}" Grid.Row="2" BackgroundColor="MistyRose">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Label Text="{Binding .}" TextColor="Red"/>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+
+
+
+
 
         <!-- Botón -->
         <Grid Grid.Row="3" ColumnSpacing="10">
@@ -111,12 +164,12 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Button Text="Guardar"
+            <Button Text="Calcular"
                     Grid.Column="1"
                     BackgroundColor="Black"
                     TextColor="White"
                     CornerRadius="15"
-                    Command="{Binding GuardarPacienteCommand}"/>
+                    Command="{Binding CalcularCommand}"/>
         </Grid>
     </Grid>
 </ContentPage>

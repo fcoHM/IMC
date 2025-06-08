@@ -1,11 +1,13 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using IMC.Auxiliares;
+using IMC.View;
 using Microsoft.Maui.Controls;
 using System.Collections.Generic;
 
 namespace IMC.ViewModel
 {
-    public partial class VMHome : ObservableObject, IQueryAttributable
+    public partial class VMHome : ObservableObject
     {
         private readonly SesionPacienteService _sesion;
 
@@ -17,8 +19,9 @@ namespace IMC.ViewModel
             _sesion = App.Current.Services.GetRequiredService<SesionPacienteService>();
         }
 
-        // Este método se llama automáticamente cada vez que navegas con parámetros
-        public void ApplyQueryAttributes(IDictionary<string, object> query)
+        // Este método se llama automáticamente cuando se navega con parámetros
+       
+        public async Task InicializarAsync()
         {
             if (_sesion.PacienteActual != null)
             {
@@ -26,8 +29,26 @@ namespace IMC.ViewModel
             }
             else
             {
-                NombreCompleto = "Paciente no identificado";
+                await Shell.Current.GoToAsync("///MainPage");
+                await Application.Current.MainPage.DisplayAlert("Sesión inválida", "Por favor selecciona un paciente.", "OK");
             }
+        }
+        [RelayCommand]
+        public async Task Calcular()
+        {
+            await Shell.Current.GoToAsync($"{nameof(Calculadora)}?refresh=true");
+        }
+
+        [RelayCommand]
+        public async Task HistorialMedi()
+        {
+            await Shell.Current.GoToAsync($"{nameof(HistorialMediciones)}?refresh=true");
+        }
+
+        [RelayCommand]
+        public async Task MiInformacion()
+        {
+            await Shell.Current.GoToAsync($"{nameof(MiInformacion)}?refresh=true");
         }
     }
 }

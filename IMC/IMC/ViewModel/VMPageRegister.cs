@@ -50,6 +50,9 @@ namespace IMC.ViewModel
             _sesionPaciente = App.Current.Services.GetRequiredService<SesionPacienteService>();
             FechaNacimiento = DateTime.Now.AddYears(-10); // Valor por defecto: 10 años atrás
         }
+
+
+
         [RelayCommand]
         public async Task GuardarPaciente()
         {
@@ -66,7 +69,7 @@ namespace IMC.ViewModel
             int sexo = SexoSeleccionado switch
             {
                 "Masculino" => 1,
-                "Femenino" => 2,
+                "Femenino" => 0,
                 _ => 0
             };
 

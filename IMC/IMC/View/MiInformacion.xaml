@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IMC.View.MiInformacion"
+             xmlns:vm="clr-namespace:IMC.ViewModel"
+             x:DataType="vm:VMMiInformacion"
+             BackgroundColor="White"
+             Title="MiInformacion">
+
+
+    <Grid RowSpacing="20" Padding="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Título -->
+            <RowDefinition Height="*"/>
+            <!-- Formulario -->
+            <RowDefinition Height="Auto"/>
+            <!-- Errores -->
+            <RowDefinition Height="Auto"/>
+            <!-- Botón -->
+        </Grid.RowDefinitions>
+
+        <!-- Título -->
+        <Label Text="Mis datos"
+               TextColor="Black"
+               FontFamily="RalewaySemiBold"
+               FontSize="30"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               Grid.Row="0"/>
+
+        <!-- Formulario -->
+        <Border Grid.Row="1"
+                BackgroundColor="LightGray"
+                Padding="20"
+                StrokeShape="RoundRectangle 15"
+                VerticalOptions="FillAndExpand">
+
+            <Grid Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Image Grid.Row="0"
+                       Source="register.png"
+                       Aspect="AspectFill"
+                       WidthRequest="80"
+                       HeightRequest="80"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Start"/>
+
+                <Grid Grid.Row="1"
+                      RowDefinitions="Auto, Auto, Auto, Auto"
+                      RowSpacing="15"
+                      VerticalOptions="StartAndExpand">
+
+                    <VerticalStackLayout Grid.Row="0" Spacing="5">
+                        <Label Text="Nombres:" FontSize="16" TextColor="Black"/>
+                        <Entry Placeholder="Ej. Juan Armando"
+                               BackgroundColor="White"
+                               HeightRequest="40"
+                               TextColor="Black"
+                               Text="{Binding Nombres, Mode=TwoWay}"/>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Grid.Row="1" Spacing="5">
+                        <Label Text="Apellidos:" FontSize="16" TextColor="Black"/>
+                        <Entry Placeholder="Ej. Pérez García"
+                               BackgroundColor="White"
+                               HeightRequest="40"
+                               TextColor="Black"
+                               Text="{Binding Apellidos, Mode=TwoWay}"/>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Grid.Row="2" Spacing="5">
+                        <Label Text="Fecha Nacimiento:" FontSize="16" TextColor="Black"/>
+                        <DatePicker BackgroundColor="White"
+                                    HeightRequest="40"
+                                    TextColor="Black"
+                                    Date="{Binding FechaNacimiento, Mode=TwoWay}"/>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Grid.Row="3" Spacing="5">
+                        <Label Text="Sexo:" FontSize="16" TextColor="Black"/>
+                        <Picker Title="Selecciona..."
+                                BackgroundColor="White"
+                                HeightRequest="40"
+                                TextColor="Black"
+                                SelectedItem="{Binding SexoSeleccionado, Mode=TwoWay}">
+                            <Picker.Items>
+                                <x:String>Masculino</x:String>
+                                <x:String>Femenino</x:String>
+                            </Picker.Items>
+                        </Picker>
+
+                    </VerticalStackLayout>
+                </Grid>
+            </Grid>
+        </Border>
+
+        <!-- Mensaje de error -->
+        <CollectionView ItemsSource="{Binding Errores}" Grid.Row="2" BackgroundColor="MistyRose">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Label Text="{Binding .}" TextColor="Red"/>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- Botón -->
+        <Grid Grid.Row="3" ColumnSpacing="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button Text="Actualizar"
+                    Grid.Column="1"
+                    BackgroundColor="Black"
+                    TextColor="White"
+                    CornerRadius="15"
+                    Command="{Binding ActualizarInformacionCommand}"/>
+            <Button Text="Borrar Paciente"
+                    Grid.Column="0"
+                    BackgroundColor="Red"
+                    TextColor="black"
+                    CornerRadius="15"
+                    Command="{Binding EliminarCuentaCommand}"/>
+        </Grid>
+    </Grid>
+</ContentPage>

@@ -2,8 +2,11 @@ namespace IMC.View;
 
 public partial class Calculadora : ContentPage
 {
-	public Calculadora()
+	private readonly VMCalculadora _vmCalculadora;
+    public Calculadora()
 	{
-		InitializeComponent();
+		_vmCalculadora = App.Current.Services.GetRequiredService<VMCalculadora>();
+		BindingContext = _vmCalculadora; // Asignar el ViewModel a la vista
+        InitializeComponent();
 	}
 }
