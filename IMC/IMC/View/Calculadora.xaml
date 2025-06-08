@@ -45,10 +45,10 @@
                 </Grid.RowDefinitions>
 
                 <Image Grid.Row="0"
-                       Source="mujer.png"
+                       Source="eje.png"
                        Aspect="AspectFill"
-                       WidthRequest="130"
-                       HeightRequest="130"
+                       WidthRequest="100"
+                       HeightRequest="100"
                        HorizontalOptions="Center"
                        VerticalOptions="Start"/>
 
