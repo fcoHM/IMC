@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mo="clr-namespace:IMC.Model"
+             x:Class="IMC.View.Templates.ItemPaciente">
+
+    <HorizontalStackLayout x:DataType="mo:Paciente"
+                           BackgroundColor="white"
+                           Padding="10"
+
+                           VerticalOptions="Center">
+        <Label Text="{Binding Nombres}" FontAttributes="Bold" TextColor="Black"/>
+        <Label Text="{Binding Apellidos}" FontAttributes="Bold" TextColor="black"/>
+    </HorizontalStackLayout>
+
+</ContentView>

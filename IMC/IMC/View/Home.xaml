@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:IMC.ViewModel"
+             x:Class="IMC.View.Home"
+             BackgroundColor="White"
+             Title="Home"
+             x:DataType="vm:VMHome">
+    <Grid RowSpacing="20" Padding="20" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Título -->
+            <RowDefinition Height="*"/>
+            <!-- Lista de pacientes (expandible) -->
+            <RowDefinition Height="Auto"/>
+            <!-- Botón -->
+        </Grid.RowDefinitions>
+
+        <!-- Primer renglón: título -->
+        <Label Text="{Binding NombreCompleto}"
+               TextColor="Black"
+               FontFamily="RalewaySemiBold"
+               FontSize="20"
+               VerticalOptions="Center"
+               Grid.Row="0"/>
+
+        <!-- Segundo renglón: formulario de paciente -->
+        <Border Grid.Row="1"
+                BackgroundColor="LightGray"
+                Padding="20"
+                StrokeShape="RoundRectangle 15"
+                StrokeThickness="0"
+                VerticalOptions="FillAndExpand">
+
+            <Grid Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <!-- Imagen -->
+                    <RowDefinition Height="*"/>
+                    <!-- Formulario -->
+                </Grid.RowDefinitions>
+
+                <!-- Imagen (primera fila) -->
+                <Image Grid.Row="0"
+                       Source="home.png"
+                       Aspect="AspectFill"
+                       WidthRequest="85"
+                       HeightRequest="130"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Start"/>
+
+                <!-- Formulario (segunda fila) -->
+                <StackLayout Grid.Row="1"
+                             Spacing="15"
+                             VerticalOptions="StartAndExpand"
+                             HorizontalOptions="Center"
+                             Margin="0,40,0,0">
+                    <Button Text="Calcular índices"
+                            BackgroundColor="Black"
+                            TextColor="White"
+                            CornerRadius="15"
+                            WidthRequest="200"
+                            Command="{Binding CalcularCommand}" />
+
+                    <Button Text="Historial de mediciones"
+                            BackgroundColor="Black"
+                            TextColor="White"
+                            CornerRadius="15"
+                            WidthRequest="200"
+                            Command="{Binding HistorialCommand}" />
+                </StackLayout>
+
+            </Grid>
+        </Border>
+
+        <!-- Tercer renglón: botón -->
+        <Grid Grid.Row="2"
+              ColumnSpacing="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button Text="Editar mis datos"
+                    Grid.Column="1"
+                    BackgroundColor="Black"
+                    TextColor="White"
+                    CornerRadius="15"
+                    Command="{Binding }"/>
+            <!--implementacion de la binding-->
+        </Grid>
+
+    </Grid>
+</ContentPage>

@@ -1,24 +1,23 @@
-﻿namespace IMC
+﻿using IMC.ViewModel;
+
+namespace IMC
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
-
+        private readonly VMMainPage _vm;
         public MainPage()
         {
+
             InitializeComponent();
+            _vm = App.Current.Services.GetRequiredService<VMMainPage>();
+            BindingContext = _vm;
         }
 
-        private void OnCounterClicked(object? sender, EventArgs e)
+        protected override async void OnAppearing()
         {
-            count++;
-
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
+            base.OnAppearing();
+            if (BindingContext is VMMainPage vm)
+                await vm.CargarPacientesAsync();
         }
     }
 }

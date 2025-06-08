@@ -7,8 +7,8 @@
     Title="IMC">
 
     <ShellContent
-        Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    Route="MainPage" /> <!--de donde se abre la paguina-->
+
 
 </Shell>
