@@ -40,7 +40,7 @@ namespace IMC.ViewModel
         private double peso; // en kilogramos
 
         [ObservableProperty]
-        private double altura; // en metros
+        private double altura; // en cm
 
         [ObservableProperty]
         private double indiceMasaCorporal; // imc
@@ -108,7 +108,7 @@ namespace IMC.ViewModel
                 return;
             }
 
-            double estaturaCm = Altura * 100; // Convertir de metros a centímetros
+            double estaturaCm = Altura;
             int sexo = paciente.Sexo; // 1 = hombre, 0 = mujer
 
             if (sexo == 1)

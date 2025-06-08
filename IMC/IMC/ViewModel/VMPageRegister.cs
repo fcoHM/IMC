@@ -69,15 +69,12 @@ namespace IMC.ViewModel
             int sexo = SexoSeleccionado switch
             {
                 "Masculino" => 1,
-                "Femenino" => 0,
-                _ => 0
+                "Femenino" => 0
+                
             };
 
-            if (sexo == 0)
-            {
-                Errores.Add("Sexo no válido.");
-                return;
-            }
+            
+            
 
             Paciente nuevoPaciente = new Paciente
             {

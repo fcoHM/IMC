@@ -13,6 +13,7 @@ namespace IMC
             Routing.RegisterRoute(nameof(Calculadora), typeof(Calculadora));
             Routing.RegisterRoute(nameof(HistorialMediciones), typeof(HistorialMediciones));
             Routing.RegisterRoute(nameof(MiInformacion), typeof(MiInformacion));
+            Routing.RegisterRoute(nameof(MainPage), typeof(MainPage));
 
 
 

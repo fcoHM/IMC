@@ -25,7 +25,7 @@ namespace IMC
             services.AddTransient<HistorialMediciones>(); //registramos el view model de la pagina de registro
             services.AddSingleton<Home>(); //registramos la pagina home
             services.AddTransient<MiInformacion>(); //registramos el view model de la pagina de historial de mediciones
-            services.AddSingleton<VMMiInformacion>(); //registramos el view model de la pagina de historial de mediciones
+            services.AddTransient<VMMiInformacion>(); //registramos el view model de la pagina de historial de mediciones
             services.AddSingleton<AppShell>(); //registramos el shell de la aplicacion
             services.AddTransient<VMPageRegister>(); //registramos el view model de la pagina de registro
             services.AddSingleton<VMHistorialMediciones>(); //registramos el view model de la pagina calculadora

@@ -5,7 +5,7 @@
              xmlns:vm="clr-namespace:IMC.ViewModel"
              x:DataType="vm:VMMiInformacion"
              BackgroundColor="White"
-             Title="MiInformacion">
+             Title="Mi Informacion">
 
 
     <Grid RowSpacing="20" Padding="20">

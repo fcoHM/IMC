@@ -63,7 +63,7 @@ namespace IMC.ViewModel
             {
                 Nombres = _paciente.Nombres;
                 Apellidos = _paciente.Apellidos;
-                SexoSeleccionado = _paciente.Sexo == 0 ? "Masculino" : "Femenino";
+                SexoSeleccionado = _paciente.Sexo == 0 ? "Femenino" : "Masculino";
                 FechaNacimiento = _paciente.FechaNacimiento;
             }
         }
@@ -97,7 +97,7 @@ namespace IMC.ViewModel
             _paciente.Nombres = Nombres;
             _paciente.Apellidos = Apellidos;
             _paciente.FechaNacimiento = FechaNacimiento;
-            _paciente.Sexo = SexoSeleccionado == "Masculino" ? 0 : 1;
+            _paciente.Sexo = SexoSeleccionado == "Masculino" ? 1 : 0;
 
             try
             {
@@ -146,7 +146,7 @@ namespace IMC.ViewModel
                     _sesion.Limpiar();
                     _paciente = null; // <---- Aquí actualizamos la referencia local también
 
-                    Application.Current.MainPage = new NavigationPage(new MainPage());
+                    await Shell.Current.GoToAsync("//MainPage");
 
                     await Application.Current.MainPage.DisplayAlert("Cuenta eliminada", "Tu cuenta ha sido eliminada correctamente.", "OK");
                 }
